@@ -19,7 +19,7 @@ workerów, mysql, nginx, load balancer itd) będzie w pełni automatyczne.
 Automatyczny będzie również
 proces aktualizacji kontenerów na sererach testowych i produckyjnych
 
-Blog post link http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html
+Obecna wersja bazuje na konfiguracji [Nospora](http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html)
 
 ![screen](http://q.i-systems.pl/file/83f832ae.png)
 
