@@ -1,6 +1,24 @@
 Nospor Docker
 =============
 
+Zestaw kontenerów tworzących jedno działające środowisko uruchomieniowe aplikacji. 
+Skład się z
+- nginx
+- php5.6 (i 7.0)
+- mysql
+
+Mamy więc 4 kontenery, które potrafią ze sobą rozmawiać i współpracować. 
+Uruchomienie całego środowiska wymaga uruchomienia jednej komendy. Wstępna
+konfiguracja Dockera na swojej maszynie jest bardzo prosta i ogranicza się do
+instalacji paczki.
+
+Docelowo będziemy tu mieli uruchomiony nasz sklep (release) razem z bazą i kodem.
+W dalszej kolejności pojawią się konfiguracje całych infrastruktur produckcyjnych
+sklepów. Stworzenie lokalnej kopii 51015 1:1 (varnish, redis, php (custom) wiele 
+workerów, mysql, nginx, load balancer itd) będzie w pełni automatyczne. 
+Automatyczny będzie również
+proces aktualizacji kontenerów na sererach testowych i produckyjnych
+
 Blog post link http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html
 
 ![screen](http://q.i-systems.pl/file/83f832ae.png)
