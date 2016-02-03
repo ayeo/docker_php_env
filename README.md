@@ -2,7 +2,7 @@ Nospor Docker
 =============
 
 Zestaw kontenerów tworzących jedno działające środowisko uruchomieniowe aplikacji. 
-Skład się z
+Składa się z:
 - nginx
 - php5.6 (i 7.0)
 - mysql
