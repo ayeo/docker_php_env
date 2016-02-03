@@ -16,3 +16,5 @@ RUN chmod +x /etc/service/nginx/run
 EXPOSE 80
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN rm /etc/nginx/sites-enabled/default
