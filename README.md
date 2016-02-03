@@ -22,7 +22,7 @@ Uruchomienie
 - Pobieramy projekt i w jego katalogu uruchamiamy
  
 ```
-ssh://git@gitlab.i-systems.pl:10210/misc/docker-nospor.git docker
+git clone ssh://git@gitlab.i-systems.pl:10210/misc/docker-nospor.git docker
 cd docker
 docker-compose up -d
 ```
