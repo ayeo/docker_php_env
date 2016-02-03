@@ -1,5 +1,5 @@
 nginx:
-  image: nginx
+  build: images/nginx
   ports:
     - "8080:80"
   volumes:
@@ -10,14 +10,14 @@ nginx:
     - php56
     - php70
 php56:
-  image: php56
+  build: images/php56
   volumes:
     - ./images/php56/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
     - ./src:/var/www
   links:
     - db
 php70:
-  image: php70
+  build: images/php70
   volumes:
     - ./images/php70/php-fpm.conf:/etc/php7/fpm/php-fpm.conf
     - ./src:/var/www
