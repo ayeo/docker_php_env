@@ -1,0 +1,33 @@
+nginx:
+  image: nginx
+  ports:
+    - "8080:80"
+  volumes:
+    - ./src:/var/www
+    - ./src/project1/project1.conf:/etc/nginx/sites-enabled/project1.conf
+    - ./log/nginx:/var/log/nginx
+  links:
+    - php56
+    - php70
+php56:
+  image: php56
+  volumes:
+    - ./images/php56/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
+    - ./src:/var/www
+  links:
+    - db
+php70:
+  image: php70
+  volumes:
+    - ./images/php70/php-fpm.conf:/etc/php7/fpm/php-fpm.conf
+    - ./src:/var/www
+  links:
+    - db
+db:
+  image: sameersbn/mysql
+  volumes:
+   - /var/lib/mysql
+  environment:
+   - DB_NAME=db_test
+   - DB_USER=db_test_user
+   - DB_PASS=db_test_pass
