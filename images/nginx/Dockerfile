@@ -1,20 +1,18 @@
 FROM phusion/baseimage
+
 MAINTAINER nospor <nospor@gmail.com>
 
-CMD ["/sbin/my_init"]
-
-RUN apt-get update && apt-get install -y python-software-properties
 RUN add-apt-repository ppa:nginx/stable
-RUN apt-get update && apt-get install -y nginx
+RUN apt-get update 
+RUN apt-get install -yq \
+	python-software-properties \
+	nginx
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-RUN mkdir -p /etc/service/nginx
-ADD start.sh /etc/service/nginx/run
-RUN chmod +x /etc/service/nginx/run
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm /etc/nginx/sites-enabled/default
 
 EXPOSE 80
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN rm /etc/nginx/sites-enabled/default
+CMD service nginx start
