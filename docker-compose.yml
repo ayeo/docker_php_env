@@ -1,15 +1,16 @@
 application:
     build: images/code
     volumes:
-        - ./src:/var/www                
+        - ./src:/var/www
     tty: true
-
 nginx:
   build: images/nginx
   ports:
     - "8080:80"
+  volumes_from:
+    - application    
   volumes:    
-    - ./src/project1/project1.conf:/etc/nginx/sites-enabled/project1.conf
+    - ./project1.conf:/etc/nginx/sites-enabled/project1.conf
     - ./log/nginx:/var/log/nginx
   links:
     - php56
