@@ -1,9 +1,14 @@
+application:
+    build: images/code
+    volumes:
+        - ./src:/var/www                
+    tty: true
+
 nginx:
   build: images/nginx
   ports:
     - "8080:80"
-  volumes:
-    - ./src:/var/www
+  volumes:    
     - ./src/project1/project1.conf:/etc/nginx/sites-enabled/project1.conf
     - ./log/nginx:/var/log/nginx
   links:
@@ -11,16 +16,18 @@ nginx:
     - php70
 php56:
   build: images/php56
+  volumes_from:
+        - application  
   volumes:
-    - ./images/php56/php-fpm.conf:/etc/php5/fpm/php-fpm.conf
-    - ./src:/var/www
+    - ./images/php56/php-fpm.conf:/etc/php5/fpm/php-fpm.conf  
   links:
     - db
 php70:
   build: images/php70
+  volumes_from:      
+    - application
   volumes:
-    - ./images/php70/php-fpm.conf:/etc/php7/fpm/php-fpm.conf
-    - ./src:/var/www
+    - ./images/php70/php-fpm.conf:/etc/php7/fpm/php-fpm.conf    
   links:
     - db
 db:
