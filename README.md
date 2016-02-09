@@ -1,6 +1,6 @@
 # Docker PHP environment
 
-![screen](http://q.i-systems.pl/file/a037754c.png)
+![screen](http://q.i-systems.pl/file/9dfcc6f8.png)
 
 ### Description
 
