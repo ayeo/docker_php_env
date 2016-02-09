@@ -1,7 +1,7 @@
 application:
     build: images/code
     volumes:
-        - ./src:/var/www
+      - ./www:/var/www
     tty: true
 nginx:
   build: images/nginx
@@ -18,7 +18,7 @@ nginx:
 php56:
   build: images/php56
   volumes_from:
-        - application  
+    - application  
   volumes:
     - ./images/php56/php-fpm.conf:/etc/php5/fpm/php-fpm.conf  
   links:
@@ -36,6 +36,6 @@ db:
   volumes:
    - /var/lib/mysql
   environment:
-   - DB_NAME=db_test
-   - DB_USER=db_test_user
-   - DB_PASS=db_test_pass
+   - DB_NAME=ayeo_docker
+   - DB_USER=root
+   - DB_PASS=root
