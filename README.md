@@ -17,8 +17,7 @@ run just one command. Each container is based on Ubuntu 14.04
  
 This configuration derives from [Nospor's blog](http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html). Thank you very much :)
 
-After run, new directory will appears named `www`. It consists the application source. Every modification to this coude affects running application so it allows to developers to work. If `www` directory is not empty exisitng files will NOT be overwritten due to remain local changes untouched.
-
+After run, new directory named `www` will appeari (in current location). It consists the application source. Every modification to this code affects running application so it allows developers to work with the code. If `www` directory is not empty exisitng files will NOT be overwritten due to remain local changes untouched.
 
 ### Setup
 
