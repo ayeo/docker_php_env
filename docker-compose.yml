@@ -10,7 +10,7 @@ nginx:
   volumes_from:
     - application    
   volumes:    
-    - ./project1.conf:/etc/nginx/sites-enabled/project1.conf
+    - ./rewrite.conf:/etc/nginx/sites-enabled/ayeo.conf
     - ./log/nginx:/var/log/nginx
   links:
     - php56

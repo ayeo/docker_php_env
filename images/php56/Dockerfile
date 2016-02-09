@@ -1,11 +1,13 @@
-FROM phusion/baseimage
+FROM ubuntu:14.04
 
-MAINTAINER nospor <nospor@gmail.com>
+MAINTAINER ayeo <me@ayeo.pl>
 
+RUN apt-get update
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php5-5.6
+
 RUN apt-get update 
 RUN apt-get install -qy --force-yes \
-	python-software-properties \
 	php5-fpm \
 	php5-mysql \
 	php5-mcrypt \
@@ -14,7 +16,6 @@ RUN apt-get install -qy --force-yes \
 	php5-gd \
 	php5-xsl
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 9000    
 

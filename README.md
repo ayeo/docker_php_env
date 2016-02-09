@@ -2,59 +2,50 @@
 
 ![screen](http://q.i-systems.pl/file/83f832ae.png)
 
-### Budowa i działanie
+### Description
 
-Zestaw kontenerów tworzących jedno działające środowisko uruchomieniowe aplikacji. 
-Składa się z:
+Containers set for comprehensive php application runtime environment. It consists of:
 
 - nginx
 - php5.6
-- php7.0 (do wyboru)
+- php7.0
 - mysql
+- source code (sample application)
 
-Mamy więc 4 kontenery, które potrafią ze sobą rozmawiać i współpracować. 
-Uruchomienie całego środowiska wymaga uruchomienia jednej komendy. Wstępna
-konfiguracja Dockera na swojej maszynie jest bardzo prosta i ogranicza się do
-instalacji paczki.
+There are 5 seperate containers able to speak to each other. Setting up whole environment is as simple as
+run just one command. Each container is based on Ubuntu 14.04
+ 
+This configuration derives from [Nospor's blog](http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html). Thank you very much :)
 
-Obecna wersja bazuje na konfiguracji [Nospora](http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html).
 
-### Plan
+### Setup
 
-Docelowo będziemy tu mieli uruchomiony nasz sklep (release) razem z bazą i kodem.
-W dalszej kolejności pojawią się konfiguracje całych infrastruktur produckcyjnych
-sklepów. Stworzenie lokalnej kopii 51015 1:1 (varnish, redis, php (custom) wiele 
-workerów, mysql, nginx, load balancer itd) będzie w pełni automatyczne. 
-Automatyczny będzie również
-proces aktualizacji kontenerów na sererach testowych i produckyjnych
-
-### Instalacja Dockera na maszynie lokalnej
-
-Obecnie instalacja sporwadza się do pobrania paczki z [docker.com](https://www.docker.com/products/docker-toolbox)
-
-### Uruchomienie środowiska
-
-- Dodajemy hosty w /etc/hosts
+- Add to /etc/hosts
 
 ```
-192.168.99.100 isklep.php56
-192.168.99.100 isklep.php70
+# OSX
+192.168.99.100 ayeo.php56
+192.168.99.100 ayeo.php70
+
+# Linux
+127.0.0.1 ayeo.php56
+127.0.0.1 ayeo.php70
 ```
-- Pobieramy projekt i w jego katalogu uruchamiamy
+
+- Get config and run
 
 ```
-git clone ssh://git@gitlab.i-systems.pl:10210/misc/docker-nospor.git docker
+git clone --- docker
 cd docker
 docker-compose up -d
 ```
 
-- Sprawdzamy działanie
+- Check if everyting works properly
 
 ```
-http://isklep.php70:8080 //php 7.0
-http://isklep.php56:8080 //php 5.6
+//php 7.0
+http://ayeo.php70:8080 
+
+//php 5.6
+http://ayeo.php56:8080 
 ```
-
-### Uwagi
-
-Wszelkie uwagi mile widziane ;)

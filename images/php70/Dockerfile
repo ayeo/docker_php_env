@@ -1,18 +1,14 @@
-FROM phusion/baseimage
-MAINTAINER author <author@email.pl>
+FROM ubuntu:14.04
 
-CMD ["/sbin/my_init"]
-RUN apt-get update && \
-    apt-get install -y python-software-properties
-RUN sudo add-apt-repository ppa:ondrej/php    
-RUN apt-get update && \
-    apt-get install -y --force-yes php7.0-fpm php7.0-mysql
+MAINTAINER ayeo <me@ayeo.pl>
 
-EXPOSE 9001    
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ondrej/php    
 
-RUN mkdir -p /etc/service/php-fpm
-ADD start.sh /etc/service/php-fpm/run
-RUN chmod +x /etc/service/php-fpm/run
+RUN apt-get update 
+RUN apt-get install -y --force-yes php7.0 php7.0-fpm php7.0-mysql
 
+EXPOSE 9000
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+CMD php-fpm7.0 -c /etc/php7/fpm --fpm-config /etc/php7/fpm/php-fpm.conf -F
