@@ -35,7 +35,7 @@ This configuration derives from [Nospor's blog](http://nospor.pl/docker-zaprzega
 - Get config and run
 
 ```
-git clone --- docker
+git clone git@github.com:ayeo/docker_php_env.git docker
 cd docker
 docker-compose up -d
 ```
