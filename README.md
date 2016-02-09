@@ -45,7 +45,7 @@ docker-compose up -d
 	- PHP 7.0 `http://ayeo.php70:8080`
 	- PHP 5.6 `http://ayeo.php56:8080`
 
-### Docker bahs aliases
+### Docker bash aliases
 
 Helpfull docker aliases. Add to `~/.bash_profile`
 
