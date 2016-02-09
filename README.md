@@ -17,6 +17,8 @@ run just one command. Each container is based on Ubuntu 14.04
  
 This configuration derives from [Nospor's blog](http://nospor.pl/docker-zaprzegamy-kontenery-do-pracy.html). Thank you very much :)
 
+After run, new directory will appears named `www`. It consists the application source. Every modification to this coude affects running application so it allows to developers to work. If `www` directory is not empty exisitng files will NOT be overwritten due to remain local changes untouched.
+
 
 ### Setup
 
@@ -45,7 +47,7 @@ docker-compose up -d
 	- PHP 7.0 `http://ayeo.php70:8080`
 	- PHP 5.6 `http://ayeo.php56:8080`
 
-### Docker bash aliases
+### Docker bahs aliases
 
 Helpfull docker aliases. Add to `~/.bash_profile`
 
