@@ -20,7 +20,7 @@ This configuration derives from [Nospor's blog](http://nospor.pl/docker-zaprzega
 
 ### Setup
 
-- Add to /etc/hosts
+- Add to `/etc/hosts`
 
 ```
 # OSX
@@ -42,10 +42,19 @@ docker-compose up -d
 
 - Check if everyting works properly
 
-```
-//php 7.0
-http://ayeo.php70:8080 
+	- PHP 7.0 `http://ayeo.php70:8080`
+	- PHP 5.6 `http://ayeo.php56:8080`
 
-//php 5.6
-http://ayeo.php56:8080 
+### Docker bahs aliases
+
+Helpfull docker aliases. Add to `~/.bash_profile`
+
+```
+dstop() { docker stop $(docker ps -a -q); }
+drm() { docker rm $(docker ps -a -q); }
+drmi() { docker rmi $(docker images -q); }
+dexec() { docker exec -i -t $1 bash; }
+dip() { docker inspect $(docker ps -q) | grep IPA; }
+dup() { docker-compose up -d; }
+dps() { docker ps; }
 ```
