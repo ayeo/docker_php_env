@@ -60,3 +60,9 @@ dip() { docker inspect $(docker ps -q) | grep IPA; }
 dup() { docker-compose up -d; }
 dps() { docker ps; }
 ```
+
+### TODO
+
+- Configure php.ini (display_errors, error_raporting)
+- Make all logs accessible outside container 
+- Use supervisord to keep container alive
